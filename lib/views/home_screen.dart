@@ -11,18 +11,30 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Padee Counter'),
+        title: Text('app_title'.tr),
         actions: [
+          IconButton(
+            icon: const Icon(Icons.language),
+            tooltip: 'Change Language',
+            onPressed: () {
+              // Toggle between English and Myanmar
+              if (Get.locale?.languageCode == 'my') {
+                Get.updateLocale(const Locale('en', 'US'));
+              } else {
+                Get.updateLocale(const Locale('my', 'MM'));
+              }
+            },
+          ),
           IconButton(
             icon: const Icon(Icons.refresh),
             tooltip: 'Reset Counts',
             onPressed: () {
               // Ask for confirmation before resolving
               Get.defaultDialog(
-                title: 'Reset Counters?',
-                middleText: 'Are you sure you want to reset your bead and round counts?',
-                textConfirm: 'Yes',
-                textCancel: 'No',
+                title: 'reset_title'.tr,
+                middleText: 'reset_desc'.tr,
+                textConfirm: 'yes'.tr,
+                textCancel: 'no'.tr,
                 confirmTextColor: Colors.white,
                 onConfirm: () {
                   controller.resetCounts();
@@ -49,13 +61,15 @@ class HomeScreen extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text('Bead Type:', style: Theme.of(context).textTheme.titleMedium),
+                            Expanded(
+                              child: Text('bead_type'.tr, style: Theme.of(context).textTheme.titleMedium),
+                            ),
                             Obx(() => DropdownButton<int>(
                               value: controller.selectedBeadType.value,
                               items: controller.beadOptions.map((int value) {
                                 return DropdownMenuItem<int>(
                                   value: value,
-                                  child: Text('${value} Beads'),
+                                  child: Text('${value} ${'beads_suffix'.tr}'),
                                 );
                               }).toList(),
                               onChanged: (int? newValue) {
@@ -70,7 +84,9 @@ class HomeScreen extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text('Target Rounds:', style: Theme.of(context).textTheme.titleMedium),
+                            Expanded(
+                              child: Text('target_rounds'.tr, style: Theme.of(context).textTheme.titleMedium),
+                            ),
                             SizedBox(
                               width: 100,
                               child: TextFormField(
@@ -102,7 +118,7 @@ class HomeScreen extends StatelessWidget {
                 Obx(() => Column(
                   children: [
                     Text(
-                      'Bead Count',
+                      'bead_count'.tr,
                       style: Theme.of(context).textTheme.headlineSmall,
                     ),
                     Text(
@@ -113,7 +129,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 24),
                     Text(
-                      'Rounds Completed',
+                      'rounds_completed'.tr,
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     Text(
@@ -144,10 +160,10 @@ class HomeScreen extends StatelessWidget {
                         )
                       ],
                     ),
-                    child: const Center(
+                    child: Center(
                       child: Text(
-                        'TAP',
-                        style: TextStyle(
+                        'tap_button'.tr,
+                        style: const TextStyle(
                           fontSize: 48,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,

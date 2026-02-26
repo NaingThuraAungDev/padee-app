@@ -67,14 +67,14 @@ class PadeeController extends GetxController {
 
     // 3. Show Popup
     Get.defaultDialog(
-      title: "Goal Achieved! 🙏",
-      middleText: "Congratulations! You have completed your goal of ${targetRounds.value} rounds.",
+      title: 'goal_achieved_title'.tr,
+      middleText: 'goal_achieved_desc'.trParams({'rounds': targetRounds.value.toString()}),
       confirm: ElevatedButton(
         onPressed: () {
           Get.back(); // close dialog
           resetCounts(); // Optional: auto reset or let user manually reset
         },
-        child: const Text("Sadhu Sadhu Sadhu"),
+        child: Text('sadhu_btn'.tr),
       ),
       barrierDismissible: false,
     );
