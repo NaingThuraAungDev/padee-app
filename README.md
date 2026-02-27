@@ -9,11 +9,6 @@ It is built using the GetX micro-framework for state management and routing.
 
 ## Screenshots
 
-<p align="center">
-  <img src="assets/screenshot_home.png" alt="Home Screenshot" width="300"/>
-  <img src="assets/screenshot_settings.png" alt="Settings Screenshot" width="300"/>
-</p>
-
 ## Features
 
 - **Bead Types:** Choose from three bead count types: 9, 27, or 108.
