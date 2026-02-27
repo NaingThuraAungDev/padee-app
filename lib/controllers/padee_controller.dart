@@ -9,8 +9,19 @@ class PadeeController extends GetxController {
   var currentRoundCount = 0.obs;
   var targetRounds = 10.obs;
   
+  // Settings Variables
+  var isVibrationEnabled = true.obs;
+  var isSoundEnabled = true.obs;
+  var currentLanguage = 'my'.obs;
+  
   // Options for Bead Strings
   final List<int> beadOptions = [9, 27, 108];
+
+  void changeLanguage(String langCode, String countryCode) {
+    var locale = Locale(langCode, countryCode);
+    Get.updateLocale(locale);
+    currentLanguage.value = langCode;
+  }
 
   void setBeadType(int type) {
     selectedBeadType.value = type;
@@ -32,9 +43,11 @@ class PadeeController extends GetxController {
       currentRoundCount.value++;
       
       // Haptic feedback for completing a round
-      bool? hasVibrator = await Vibration.hasVibrator();
-      if (hasVibrator == true) {
-        Vibration.vibrate(duration: 100);
+      if (isVibrationEnabled.value) {
+        bool? hasVibrator = await Vibration.hasVibrator();
+        if (hasVibrator == true) {
+          Vibration.vibrate(duration: 100);
+        }
       }
       
       // Check if goal reached
@@ -43,9 +56,11 @@ class PadeeController extends GetxController {
       }
     } else {
       // Light haptic feedback for each bead tap
-      bool? hasVibrator = await Vibration.hasCustomVibrationsSupport();
-      if (hasVibrator == true) {
-        Vibration.vibrate(duration: 30, amplitude: 50);
+      if (isVibrationEnabled.value) {
+        bool? hasVibrator = await Vibration.hasCustomVibrationsSupport();
+        if (hasVibrator == true) {
+          Vibration.vibrate(duration: 30, amplitude: 50);
+        }
       }
     }
   }
@@ -57,9 +72,11 @@ class PadeeController extends GetxController {
 
   void _triggerGoalCompletionAlert() async {
     // 1. Vibrate
-    bool? hasVibrator = await Vibration.hasVibrator();
-    if (hasVibrator == true) {
-      Vibration.vibrate(pattern: [500, 1000, 500, 1000]);
+    if (isVibrationEnabled.value) {
+      bool? hasVibrator = await Vibration.hasVibrator();
+      if (hasVibrator == true) {
+        Vibration.vibrate(pattern: [500, 1000, 500, 1000]);
+      }
     }
 
     // 2. Play Sound (Could use audioplayers here, omitting sound file for now to keep it simple without assets)
