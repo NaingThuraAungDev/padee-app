@@ -66,7 +66,7 @@ class HomeScreen extends StatelessWidget {
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       border: Border.all(
-                        color: const Color(0xFFC498EE).withOpacity(0.5),
+                        color: const Color(0xFFC498EE).withValues(alpha: 0.5),
                         width: 8,
                       ),
                     ),
@@ -122,7 +122,7 @@ class HomeScreen extends StatelessWidget {
                             shape: BoxShape.circle,
                             color: isCompleted 
                               ? const Color(0xFFC498EE)
-                              : const Color(0xFFE2C9FA).withOpacity(0.5),
+                              : const Color(0xFFE2C9FA).withValues(alpha: 0.5),
                             border: isCompleted 
                               ? Border.all(color: const Color(0xFFE2C9FA), width: 4)
                               : null,
@@ -241,13 +241,13 @@ class _AnimatedTapButtonState extends State<AnimatedTapButton> with SingleTicker
                 boxShadow: [
                   // Outer shell highlight
                   BoxShadow(
-                    color: Colors.white.withOpacity(0.4),
+                    color: Colors.white.withValues(alpha: 0.4),
                     offset: Offset(-(_shadowBlurAnimation.value / 2), -(_shadowBlurAnimation.value / 2)),
                     blurRadius: _shadowBlurAnimation.value,
                   ),
                   // Outer shell shadow
                   BoxShadow(
-                    color: const Color(0xFFB580E2).withOpacity(0.5),
+                    color: const Color(0xFFB580E2).withValues(alpha: 0.5),
                     offset: Offset(_shadowBlurAnimation.value / 2, _shadowBlurAnimation.value / 2),
                     blurRadius: _shadowBlurAnimation.value,
                   ),
@@ -262,13 +262,13 @@ class _AnimatedTapButtonState extends State<AnimatedTapButton> with SingleTicker
                   boxShadow: [
                     // Inner pushed highlight
                     BoxShadow(
-                      color: Colors.white.withOpacity(0.5),
+                      color: Colors.white.withValues(alpha: 0.5),
                       offset: Offset(-(_shadowBlurAnimation.value / 4), -(_shadowBlurAnimation.value / 4)),
                       blurRadius: _shadowBlurAnimation.value / 2,
                     ),
                     // Inner pushed shadow
                     BoxShadow(
-                      color: const Color(0xFFB580E2).withOpacity(0.3),
+                      color: const Color(0xFFB580E2).withValues(alpha: 0.3),
                       offset: Offset(_shadowBlurAnimation.value / 4, _shadowBlurAnimation.value / 4),
                       blurRadius: _shadowBlurAnimation.value / 2,
                     ),

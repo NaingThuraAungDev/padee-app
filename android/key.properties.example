@@ -1,0 +1,8 @@
+# Key properties for Android app signing
+# Copy this file to 'key.properties' in this directory (android/) and fill in your actual keystore values.
+# IMPORTANT: Never commit your actual 'key.properties' or keystore (.jks) to version control!
+
+keyAlias=upload
+keyPassword=your_key_password_here
+storePassword=your_store_password_here
+storeFile=upload-keystore.jks

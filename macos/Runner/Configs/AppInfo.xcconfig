@@ -8,7 +8,7 @@
 PRODUCT_NAME = padee
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.example.padee
+PRODUCT_BUNDLE_IDENTIFIER = com.alphadog.padee
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2026 com.example. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2026 com.alphadog. All rights reserved.

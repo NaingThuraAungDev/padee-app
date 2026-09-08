@@ -40,7 +40,7 @@ class SettingsScreen extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('language_label'.tr, style: const TextStyle(fontSize: 16)),
+                      Expanded(child: Text('language_label'.tr, style: const TextStyle(fontSize: 16))),
                       Container(
                         decoration: BoxDecoration(
                           color: Colors.grey.shade200,
@@ -80,7 +80,7 @@ class SettingsScreen extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('bead_target_label'.tr, style: const TextStyle(fontSize: 16)),
+                          Expanded(child: Text('bead_target_label'.tr, style: const TextStyle(fontSize: 16))),
                           Container(
                             padding: const EdgeInsets.symmetric(horizontal: 12),
                             decoration: BoxDecoration(
@@ -114,7 +114,7 @@ class SettingsScreen extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('round_target_label'.tr, style: const TextStyle(fontSize: 16)),
+                          Expanded(child: Text('round_target_label'.tr, style: const TextStyle(fontSize: 16))),
                           Container(
                             width: 100,
                             padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -204,7 +204,7 @@ class SettingsScreen extends StatelessWidget {
           color: isSelected ? Colors.white : Colors.transparent,
           borderRadius: BorderRadius.circular(8),
           boxShadow: isSelected
-              ? [BoxShadow(color: Colors.black12, blurRadius: 2, spreadRadius: 1)]
+              ? const [BoxShadow(color: Colors.black12, blurRadius: 2, spreadRadius: 1)]
               : null,
         ),
         child: Text(
@@ -224,7 +224,7 @@ class SettingsScreen extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(label, style: const TextStyle(fontSize: 16)),
+          Expanded(child: Text(label, style: const TextStyle(fontSize: 16))),
           Obx(() => Switch(
             value: value.value,
             onChanged: (bool newValue) => value.value = newValue,

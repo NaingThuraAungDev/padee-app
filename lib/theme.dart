@@ -26,12 +26,12 @@ class AppTheme {
         bodyLarge: TextStyle(fontSize: 18, color: Colors.black87),
         bodyMedium: TextStyle(fontSize: 16, color: Colors.black54),
       ),
-      cardTheme: CardTheme(
+      cardTheme: const CardThemeData(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.all(Radius.circular(16)),
         ),
         elevation: 4,
-        margin: const EdgeInsets.all(8),
+        margin: EdgeInsets.all(8),
       ),
     );
   }

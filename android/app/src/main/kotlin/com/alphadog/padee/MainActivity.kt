@@ -1,4 +1,4 @@
-package com.example.padee
+package com.alphadog.padee
 
 import io.flutter.embedding.android.FlutterActivity
 
